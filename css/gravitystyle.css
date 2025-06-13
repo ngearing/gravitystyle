@@ -1,0 +1,84 @@
+/* .gform_wrapper.gform-theme {
+    --gf-ctrl-outline-width-focus: 0px;
+}
+
+.gfield .ginput_complex>span,
+.gfield {
+    position: relative !important;
+}
+
+.ginput_complex label,
+.gfield_label:not(legend) {
+    position: absolute;
+    left: 0;
+    top: 0;
+    padding-top: 0;
+    margin-bottom: 0;
+    transition: 0.3s;
+}
+
+.ginput_complex label {
+    left: calc(var(--gf-field-gap-x) / 2);
+}
+
+.is-selected .gfield_label,
+.has-value .gfield_label,
+.ginput_complex .is-selected label,
+.ginput_complex .has-value label {
+    transform: translate(0, -115%);
+}
+
+.gfield :is(input, textarea):focus {
+    outline: 0 0 1px !important;
+}
+
+.gfield_required {
+    display: none !important;
+}
+
+.gfield--type-html {
+    font-size: 14px !important;
+    color: var(--e-global-color-secondary) !important;
+
+}
+
+.gfield--type-html a {
+    text-decoration: none !important;
+} */
+
+/* Hide Required */
+.gform_wrapper .gfield_required {
+    display: none;
+}
+
+/* Hide placeholders */
+.gform_wrapper :placeholder-shown::placeholder {
+    color: transparent;
+}
+
+/* Hide labels on complex fields and select fields. Gform priority 0,2,0 */
+.gform_wrapper :is(legend.gfield_label, .gfield--type-select label) {
+    display: none;
+}
+
+/* Gravity Forms styling to make the labels display in the placeholder position then float up when the field is selected or has a value. */
+.gform_wrapper :is(.gfield, .ginput_complex>span) {
+    position: relative;
+}
+
+/* Fix the label position for complex fields. */
+.gform_wrapper .ginput_complex.gform-grid-row,
+.gform_wrapper .ginput_complex .gform-grid-col {
+    column-gap: var(--gf-field-gap-x);
+    margin-inline: 0;
+    padding-inline: 0;
+}
+
+/* Postion labels over input fields. */
+.gform_wrapper .gform-field-label {
+    position: absolute;
+    left: var(--gf-field-gap-x);
+    top: var(--gf-ctrl-line-height);
+
+    transition: 0.3s;
+}

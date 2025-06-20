@@ -15,6 +15,16 @@
     --label_font_weight: 400;
     --label_active_size: 12px;
 
+    --choice_label_color: black;
+    --choice_label_font_size: 20px;
+    --choice_label_line_height: 1;
+    --choice_label_font_weight: 400;
+
+    --submit_background: black;
+    --submit_color: white;
+    --submit_hover_background: white;
+    --submit_hover_color: black;
+
     --column-gap: 12px;
     --row-gap: 20px;
 }
@@ -40,6 +50,7 @@
     line-height: var(--field_line_height);
     height: auto;
     padding: var(--field_padding_y) var(--field_padding_x);
+    transition: 0.3s;
 }
 
 /* Fix select line height */
@@ -128,4 +139,23 @@
 
 .gform_wrapper.gravity-theme input:is([type="radio"]):checked::before {
     content: '●';
+}
+
+.gform_wrapper.gravity-theme label.gform-field-label--type-inline {
+    color: var(--choice_label_color);
+    font-size: var(--choice_label_font_size);
+    font-weight: var(--choice_label_font_weight);
+    line-height: var(--choice_label_line_height);
+}
+
+/* SUBMIT */
+.gform_wrapper.gravity-theme input[type="submit"] {
+    background-color: var(--submit_background);
+    color: var(--submit_color);
+    line-height: calc(var(--field_line_height) * 1.2);
+}
+
+.gform_wrapper.gravity-theme input[type="submit"]:hover {
+    background-color: var(--submit_hover_background);
+    color: var(--submit_hover_color);
 }

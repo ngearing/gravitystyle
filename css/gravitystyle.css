@@ -24,6 +24,11 @@
     position: relative;
 }
 
+/* Hide placeholders to prevent them displaying behind the labels */
+.gform_wrapper.gravity-theme ::placeholder {
+    color: transparent;
+}
+
 /* INPUTS */
 .gform_wrapper.gravity-theme :is(textarea, select, button, input:not([type="radio"], [type="checkbox"])) {
     background-color: var(--field_background);

@@ -56,7 +56,7 @@
 }
 
 /* LABELS */
-.gform_wrapper.gform_wrapper.gravity-theme label {
+.gform_wrapper.gform_wrapper.gravity-theme label:not(.gform-field-label--type-inline) {
     color: var(--label_color);
     font-size: var(--field_font_size);
     font-weight: var(--label_font_weight);
@@ -76,7 +76,7 @@
 }
 
 /* LABELS Active states */
-.gform_wrapper.gravity-theme :is(.is-selected, .has-value) label {
+.gform_wrapper.gravity-theme :is(.is-selected, .has-value) label:not(.gform-field-label--type-inline) {
     top: calc(var(--field_padding_y) / 2);
     left: var(--field_padding_x);
     font-size: var(--label_active_size);
@@ -98,4 +98,34 @@
 .gform_wrapper.gravity-theme .ginput_complex:not(.ginput_container_address) fieldset:not([style*="display:none"]):not(.ginput_full)~span:not(.ginput_full),
 .gform_wrapper.gravity-theme .ginput_complex:not(.ginput_container_address) span:not([style*="display:none"]):not(.ginput_full)~span:not(.ginput_full) {
     padding-left: 0;
+}
+
+/* Checkboxes and Radio Buttons */
+.gform_wrapper.gravity-theme input:is([type="checkbox"], [type="radio"]) {
+    background-color: var(--field_background);
+    appearance: none;
+    border: none;
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: var(--field_font_size);
+    line-height: var(--field_line_height);
+    font-weight: var(--field_font_weight);
+    width: 32px;
+    height: 32px;
+    margin-right: var(--column-gap);
+}
+
+.gform_wrapper.gravity-theme input:is([type="checkbox"], [type="radio"])::before {
+    content: ' ';
+    color: var(--field_color);
+}
+
+.gform_wrapper.gravity-theme input:is([type="checkbox"]):checked::before {
+    content: '✓';
+}
+
+.gform_wrapper.gravity-theme input:is([type="radio"]):checked::before {
+    content: '●';
 }

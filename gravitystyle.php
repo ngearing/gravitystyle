@@ -25,7 +25,7 @@ function gravitystyle_enqueue_styles() {
         wp_enqueue_script('gravitystyle-scripts', plugin_dir_url(__FILE__) . 'js/gravitystyle.js', [], '1.0.0', true);
     }
 }
-add_action('wp_enqueue_scripts', 'gravitystyle_enqueue_styles');
+add_action('wp_enqueue_scripts', 'gravitystyle_enqueue_styles', 100);
 
 /**
  * Add class to Gravity Forms wrapper element.

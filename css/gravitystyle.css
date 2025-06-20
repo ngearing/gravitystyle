@@ -1,84 +1,96 @@
-/* .gform_wrapper.gform-theme {
-    --gf-ctrl-outline-width-focus: 0px;
-}
+/* MAIN STYLES */
+.gform_wrapper.gravity-theme {
+    --field_background: white;
+    --field_color: black;
+    --field_font_size: 20px;
+    --field_font_weight: 400;
+    --field_line_height: 1;
+    --field_border_radius: 30px;
+    --field_padding_x: 24px;
+    --field_padding_y: 13px;
 
-.gfield .ginput_complex>span,
-.gfield {
-    position: relative !important;
-}
+    --label_color: black;
+    --label_font_size: 20px;
+    --label_line_height: 1;
+    --label_font_weight: 400;
+    --label_active_size: 12px;
 
-.ginput_complex label,
-.gfield_label:not(legend) {
-    position: absolute;
-    left: 0;
-    top: 0;
-    padding-top: 0;
-    margin-bottom: 0;
-    transition: 0.3s;
-}
-
-.ginput_complex label {
-    left: calc(var(--gf-field-gap-x) / 2);
-}
-
-.is-selected .gfield_label,
-.has-value .gfield_label,
-.ginput_complex .is-selected label,
-.ginput_complex .has-value label {
-    transform: translate(0, -115%);
-}
-
-.gfield :is(input, textarea):focus {
-    outline: 0 0 1px !important;
-}
-
-.gfield_required {
-    display: none !important;
-}
-
-.gfield--type-html {
-    font-size: 14px !important;
-    color: var(--e-global-color-secondary) !important;
-
-}
-
-.gfield--type-html a {
-    text-decoration: none !important;
-} */
-
-/* Hide Required */
-.gform_wrapper .gfield_required {
-    display: none;
-}
-
-/* Hide placeholders */
-.gform_wrapper :placeholder-shown::placeholder {
-    color: transparent;
-}
-
-/* Hide labels on complex fields and select fields. Gform priority 0,2,0 */
-.gform_wrapper :is(legend.gfield_label, .gfield--type-select label) {
-    display: none;
+    --column-gap: 12px;
+    --row-gap: 20px;
 }
 
 /* Gravity Forms styling to make the labels display in the placeholder position then float up when the field is selected or has a value. */
-.gform_wrapper :is(.gfield, .ginput_complex>span) {
+.gform_wrapper.gravity-theme :is(.gfield, .ginput_complex>span) {
     position: relative;
 }
 
+/* INPUTS */
+.gform_wrapper.gravity-theme :is(textarea, select, button, input:not([type="radio"], [type="checkbox"])) {
+    background-color: var(--field_background);
+    color: var(--field_color);
+    border: none;
+    border-radius: var(--field_border_radius);
+    font-size: var(--field_font_size);
+    font-weight: var(--field_font_weight);
+    line-height: var(--field_line_height);
+    height: auto;
+    padding: var(--field_padding_y) var(--field_padding_x);
+}
+
+/* Fix select line height */
+.gform_wrapper.gravity-theme select.gfield_select {
+    line-height: calc(var(--field_line_height) * 1.2);
+    height: auto;
+}
+
+/* INPUT Active states */
+.gform_wrapper.gravity-theme :is(.is-selected, .has-value) :is(textarea, select, button, input:not([type="radio"], [type="checkbox"])),
+.gform_wrapper.gravity-theme select {
+    padding-top: calc(var(--field_padding_y) * 1.5);
+    padding-bottom: calc(var(--field_padding_y) / 2);
+}
+
+/* LABELS */
+.gform_wrapper.gform_wrapper.gravity-theme label {
+    color: var(--label_color);
+    font-size: var(--field_font_size);
+    font-weight: var(--label_font_weight);
+    line-height: var(--label_line_height);
+    position: absolute;
+    top: var(--field_padding_y);
+    left: var(--field_padding_x);
+    transition: 0.3s;
+    pointer-events: none;
+    margin: 0;
+    padding: 0;
+}
+
+/* Hide labels on complex fields */
+.gform_wrapper.gravity-theme legend.gfield_label {
+    display: none;
+}
+
+/* LABELS Active states */
+.gform_wrapper.gravity-theme :is(.is-selected, .has-value) label {
+    top: calc(var(--field_padding_y) / 2);
+    left: var(--field_padding_x);
+    font-size: var(--label_active_size);
+}
+
 /* Fix the label position for complex fields. */
-.gform_wrapper .ginput_complex.gform-grid-row,
-.gform_wrapper .ginput_complex .gform-grid-col {
-    column-gap: var(--gf-field-gap-x);
+.gform_wrapper.gravity-theme .ginput_complex.gform-grid-row,
+.gform_wrapper.gravity-theme .ginput_complex .gform-grid-col {
+    column-gap: var(--column-gap);
     margin-inline: 0;
     padding-inline: 0;
 }
 
-/* Postion labels over input fields. */
-.gform_wrapper .gform-field-label {
-    position: absolute;
-    left: var(--gf-field-gap-x);
-    top: var(--gf-ctrl-line-height);
+.gform_wrapper.gravity-theme .ginput_complex:not(.ginput_container_address) fieldset:not([style*="display:none"]):not(.ginput_full),
+.gform_wrapper.gravity-theme .ginput_complex:not(.ginput_container_address) span:not([style*="display:none"]):not(.ginput_full) {
+    padding-right: 0;
+}
 
-    transition: 0.3s;
+.gform_wrapper.gravity-theme .ginput_complex:not(.ginput_container_address) fieldset:not([style*="display:none"]):not(.ginput_full)~span:not(.ginput_full),
+.gform_wrapper.gravity-theme .ginput_complex:not(.ginput_container_address) span:not([style*="display:none"]):not(.ginput_full)~span:not(.ginput_full) {
+    padding-left: 0;
 }

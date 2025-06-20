@@ -51,7 +51,7 @@
         form.addEventListener("blur", checkFormStatus, true);
 
         Array.from(
-            form.querySelectorAll('input:not([type="submit"]),textarea')
+            form.querySelectorAll('input:not([type="submit"]),textarea,select')
         ).forEach((input) => {
             Fields.event_change(input);
         });

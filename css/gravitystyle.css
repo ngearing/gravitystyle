@@ -1,6 +1,7 @@
 /* MAIN STYLES */
 .gform_wrapper.gravity-theme {
     --field_background: white;
+    --field_border: none;
     --field_color: black;
     --field_font_size: 20px;
     --field_font_weight: 400;
@@ -21,6 +22,7 @@
     --choice_label_font_weight: 400;
 
     --submit_background: black;
+    --submit_border: none;
     --submit_color: white;
     --submit_hover_background: white;
     --submit_hover_color: black;
@@ -43,7 +45,7 @@
 .gform_wrapper.gravity-theme :is(textarea, select, button, input:not([type="radio"], [type="checkbox"])) {
     background-color: var(--field_background);
     color: var(--field_color);
-    border: none;
+    border: var(--field_border);
     border-radius: var(--field_border_radius);
     font-size: var(--field_font_size);
     font-weight: var(--field_font_weight);
@@ -151,6 +153,7 @@
 /* SUBMIT */
 .gform_wrapper.gravity-theme input[type="submit"] {
     background-color: var(--submit_background);
+    border: var(--submit_border);
     color: var(--submit_color);
     line-height: calc(var(--field_line_height) * 1.2);
 }

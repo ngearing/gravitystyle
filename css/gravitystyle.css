@@ -27,6 +27,8 @@
     --submit_hover_background: white;
     --submit_hover_color: black;
 
+    --focus_border: 1px dotted;
+
     --column-gap: 12px;
     --row-gap: 20px;
 }
@@ -68,6 +70,11 @@
     padding-bottom: calc(var(--field_padding_y) / 2);
 }
 
+/* INPUT FOCUS */
+.gform_wrapper.gravity-theme :is(input, textarea, select, button):focus {
+    outline: var(--focus_border);
+}
+
 /* LABELS */
 .gform_wrapper.gform_wrapper.gravity-theme label:not(.gform-field-label--type-inline) {
     color: var(--label_color);
@@ -75,7 +82,7 @@
     font-weight: var(--label_font_weight);
     line-height: var(--label_line_height);
     position: absolute;
-    top: var(--field_padding_y);
+    top: calc(var(--field_padding_y) + var(--label_font_size) * .1);
     left: var(--field_padding_x);
     transition: 0.3s;
     pointer-events: none;
@@ -158,7 +165,7 @@
     line-height: calc(var(--field_line_height) * 1.2);
 }
 
-.gform_wrapper.gravity-theme input[type="submit"]:hover {
+.gform_wrapper.gravity-theme input[type="submit"]:is(:hover, :focus) {
     background-color: var(--submit_hover_background);
     color: var(--submit_hover_color);
 }

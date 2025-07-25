@@ -183,3 +183,11 @@
     column-gap: var(--column-gap);
     row-gap: var(--row-gap);
 }
+
+@media (max-width: 640px) {
+    .gform_wrapper.gravity-theme .ginput_complex span {
+        flex: 0 0 100%;
+        margin-bottom: 0;
+        padding-left: 0;
+    }
+}

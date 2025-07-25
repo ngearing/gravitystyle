@@ -176,3 +176,10 @@
     background-color: var(--submit_hover_background);
     color: var(--submit_hover_color);
 }
+
+/* Field col and row gaps */
+.gform_wrapper.gravity-theme .gform_fields,
+.gform_wrapper.gravity-theme .ginput_complex {
+    column-gap: var(--column-gap);
+    row-gap: var(--row-gap);
+}
